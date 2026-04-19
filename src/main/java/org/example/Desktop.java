@@ -1,9 +1,14 @@
 package org.example;
 
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
+
+@Component
+@Primary
 public class Desktop implements Computer{
 
-    Desktop(){
-        System.out.println("fuck you");
+    public Desktop(){
+        System.out.println("Desktop constructor");
     }
     @Override
     public void compile(){

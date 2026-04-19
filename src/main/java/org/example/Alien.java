@@ -1,11 +1,29 @@
 package org.example;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
 import java.beans.ConstructorProperties;
 
+@Component
 public class Alien {
+    @Value("21")
     private int age;
     private int salary;
+    @Autowired
+    @Qualifier("laptop") //feild INjection
     private Computer com;
+
+    @Override
+    public String toString() {
+        return "Alien{" +
+                "age=" + age +
+                ", salary=" + salary +
+                ", com=" + com +
+                '}';
+    }
 
     public int getAge() {
         return age;
@@ -39,7 +57,7 @@ public class Alien {
         this.salary = salary;
     }
 
-    Alien(){
+    public Alien(){
 //        System.out.println("Object Created");
     }
 //    @ConstructorProperties({"age","lap","salary"})
@@ -50,7 +68,7 @@ public class Alien {
 //        System.out.println("Object Created cons");
 //    }
     public void code(){
-//        System.out.println("coding");
+        System.out.println("coding");
         com.compile();
     }
 }
